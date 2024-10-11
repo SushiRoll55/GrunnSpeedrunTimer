@@ -10,3 +10,7 @@ This a simple mod for grunn that adds a speedrun timer to the top of your screen
 5. Open the "BepInEx" folder in your game's directory.
 6. Place the "GrunnSpeedrunTimer.dll" you downloaded earlier inside the "plugins" folder.
 7. Run the game.
+
+![Image of gameplay timer](https://github.com/SushiRoll55/GrunnSpeedrunTimer/blob/master/img-2024-10-11-00-09-57.png)
+
+![Image of ending timer](https://github.com/SushiRoll55/GrunnSpeedrunTimer/blob/master/img-2024-10-11-00-11-37.png)
