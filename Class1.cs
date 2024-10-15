@@ -54,7 +54,7 @@ namespace GrunnSpeedrunTimer
 
             harmony = new Harmony(pluginGuid);
 
-            PatchPostfix(typeof(UIManager), "GetEndingString");
+            //PatchPostfix(typeof(UIManager), "GetEndingString");
 		}
 
         public void Update()
