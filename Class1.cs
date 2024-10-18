@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace GrunnSpeedrunTimer
         Harmony harmony;
 
         GameObject timerObj;
-        TextMeshProUGUI timerText;
+        TMP_Text timerText;
 
         public static bool showMs;
 
@@ -54,7 +54,7 @@ namespace GrunnSpeedrunTimer
 
             harmony = new Harmony(pluginGuid);
 
-            //PatchPostfix(typeof(UIManager), "GetEndingString");
+            showMs = PlayerPrefs.GetInt("showMs") == 1 ? true : false;
 		}
 
         public void Update()
@@ -68,6 +68,12 @@ namespace GrunnSpeedrunTimer
             else
 			{
                 if (timerObj != null) timerObj.SetActive(false);
+			}
+
+            if (Keyboard.current.mKey.wasPressedThisFrame)
+			{
+                showMs = !showMs;
+                PlayerPrefs.SetInt("showMs", showMs ? 1 : 0);
 			}
 		}
 
@@ -84,12 +90,27 @@ namespace GrunnSpeedrunTimer
             rect.anchoredPosition = new Vector2(-480, -30);
             rect.sizeDelta = new Vector2(300, 85);
 
-            timerText = timerObj.GetComponentInChildren<TextMeshProUGUI>();
+            timerText = timerObj.GetComponentInChildren<TMP_Text>();
             timerText.text = "00:00";
-		}
+            timerText.enableAutoSizing = true;
+        }
 
         void UpdateTimer()
 		{
+            if (timerText != null)
+            {
+                if (showMs)
+                {
+                    timerText.alignment = TextAlignmentOptions.Left;
+                    timerText.margin = new Vector4(15, 0, 0, 0);
+                }
+                else
+                {
+                    timerText.alignment = TextAlignmentOptions.Center;
+                    timerText.margin = new Vector4(0, 0, 0, 0);
+                }
+            }
+
             float time = SaveManager.progressDataCheck.playTime;
             int hours = (int)(time / 3600);
             int minutes = (int)((time % 3600) / 60);
@@ -114,6 +135,7 @@ namespace GrunnSpeedrunTimer
             return curState == GameManager.GameState.Game || curState == GameManager.GameState.Paused;
         }
 
+        //Unused
         public static void GetEndingString_Patch(ref string ___endingString)
 		{
             float time = SaveManager.progressDataCheck.playTime;
