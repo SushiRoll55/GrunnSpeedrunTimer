@@ -1,6 +1,6 @@
 # GrunnSpeedrunTimer
 
-This a simple mod for grunn that adds a speedrun timer to the top of your screen. It also displays milliseconds (3 decimals) in the ending screen. Im working on making a live display of milliseconds right now as well.
+This a simple mod for grunn that adds a speedrun timer to the top of your screen. To display milliseconds, hit 'm' on your keyboard.
 
 ## Installation
 1. Download the latest stable release of BepInEx [here](https://github.com/BepInEx/BepInEx/releases) (The file should read something like "BepInEx_win_x64_5.4.23.2.zip").
