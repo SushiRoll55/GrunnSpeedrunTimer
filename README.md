@@ -14,5 +14,3 @@ This a simple mod for grunn that adds a speedrun timer to the top of your screen
 
 ## Preview
 ![Image of gameplay timer](https://github.com/SushiRoll55/GrunnSpeedrunTimer/blob/master/img-2024-10-11-00-09-57.png)
-
-![Image of ending timer](https://github.com/SushiRoll55/GrunnSpeedrunTimer/blob/master/img-2024-10-11-00-11-37.png)
